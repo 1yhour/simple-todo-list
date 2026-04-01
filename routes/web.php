@@ -1,8 +1,9 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('tasks.index');
 });
-Route::get('/test',fn()=> view('test'))->name('test');
+
+Route::resource('tasks', TodoController::class);
